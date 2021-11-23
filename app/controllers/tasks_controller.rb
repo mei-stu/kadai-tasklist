@@ -2,7 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   def index
-    @tasks = Task.all
+    #ページネーション用に追記：@pagy, ~ pagy(~)
+    @pagy, @tasks = pagy(Task.all, items:4)  #items: は1ページに表示するアイテム数
   end
   
   def show
