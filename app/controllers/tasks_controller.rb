@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+  # 各アクション前にログイン確認
+  before_action :require_user_logged_in
+  # DRY用
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -47,7 +50,7 @@ class TasksController < ApplicationController
 
   private
   
-  # DRY
+  # DRY：何度も書く処理は関数にしておく。
   def set_task
     @task = Task.find(params[:id])
   end
