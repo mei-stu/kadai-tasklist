@@ -11,4 +11,6 @@ class User < ApplicationRecord
   # パスワードダイジェスト
   has_secure_password
   
+  # 一対多( UserからTaskをみたとき、複数存在する  )
+  has_many :tasks
 end

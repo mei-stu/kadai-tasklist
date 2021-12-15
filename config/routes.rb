@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  # これなんやっけ？
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
   get 'users/create'
+  
+  # トップページ
   root to: 'tasks#index'
   
   # ログイン処理用
